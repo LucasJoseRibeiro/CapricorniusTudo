@@ -1,0 +1,107 @@
+unit UBenfeitorias;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, StdCtrls, Buttons, Grids, DBGrids, DBTables;
+
+type
+  TFBenfeitorias = class(TForm)
+    Label1: TLabel;
+    EditPesquisa: TEdit;
+    DataSource1: TDataSource;
+    Table1: TTable;
+    DBGrid1: TDBGrid;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Table1id_benfeitoria: TAutoIncField;
+    Table1BeDescricao: TStringField;
+    Table1BeVidaUtil: TFloatField;
+    Table1BeDepreciacao: TFloatField;
+    Table1BeReforma: TFloatField;
+    Table1BeValorInicial: TFloatField;
+    Table1BeValorFinal: TFloatField;
+    Table1Becodigo_criat: TSmallintField;
+    procedure EditPesquisaChange(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FBenfeitorias: TFBenfeitorias;
+
+implementation
+
+uses UPrincipal;
+
+{$R *.dfm}
+
+procedure TFBenfeitorias.EditPesquisaChange(Sender: TObject);
+begin
+   table1.locate('BeDescricao',EditPesquisa.Text,[lopartialkey]); //loCaseInsensitive, lopartialkey
+end;
+
+procedure TFBenfeitorias.BitBtn2Click(Sender: TObject);
+begin
+   close;
+end;
+
+procedure TFBenfeitorias.BitBtn1Click(Sender: TObject);
+var
+    id_ben, i:integer;
+begin
+   //Limpo os campos necessários
+   i:=0;
+   id_ben:=-1;
+   Fprincipal.Editbenf.Clear; // Descrição
+   Fprincipal.Edit156.Clear; // Valor Total Inicial
+   Fprincipal.Edit157.Clear; // Vida Util
+   Fprincipal.Edit158.Clear; // Reforma
+   Fprincipal.Edit159.Clear; // Valor Total Final
+   Fprincipal.Edit160.Clear; // Depreciação
+   for i:=0 to 3 do
+      Fprincipal.CheckListBox4.Checked[i] := false; // Atividades
+   Fprincipal.statusbar34.Panels[0].Text := '';
+
+   if table1.fieldbyname('BeDescricao').asstring <> '' then
+   begin
+      Fprincipal.EditBenf.Text := table1.fieldbyname('BeDescricao').asstring;
+      Fprincipal.Edit156.Text := Format('%.2f',[table1.fieldbyname('BeValorInicial').asfloat]);
+      Fprincipal.Edit157.Text := Format('%.2f',[table1.fieldbyname('BeVidaUtil').asfloat]);
+      Fprincipal.Edit158.Text := Format('%.2f',[table1.fieldbyname('BeReforma').asfloat]);
+      Fprincipal.Edit159.Text := Format('%.2f',[table1.fieldbyname('BeValorFinal').asfloat]);
+      Fprincipal.Edit160.Text := Format('%.2f',[table1.fieldbyname('BeDepreciacao').asfloat]);
+      id_ben := table1.FieldByName('id_benfeitoria').asinteger ;
+      Fprincipal.chave_benfeitoria := id_ben;
+
+      with FDataModule do
+      begin
+        // Aqui incluo as Atividades
+        Qmanipula.Close;
+        Qmanipula.SQL.text := 'select ativBen from AtivBen where Atid_ben=:c '+
+                              'order by ativBen asc';
+        Qmanipula.Params[0].AsInteger := id_ben;
+        Qmanipula.Open;
+        Qmanipula.First;
+        while not Qmanipula.Eof do
+        begin
+          Fprincipal.CheckListBox4.Checked[Qmanipula.Fields[0].asinteger]:=true;
+          Qmanipula.Next;
+        end;
+      end; 
+
+      //Mostro apenas os botoes de atualizar e remover
+      Fprincipal.BitBtnRemBen.Enabled := true;
+      Fprincipal.BitBtnSalBen.Enabled := true;
+      Fprincipal.BitBtnInsBen.Enabled := false;
+   end;
+
+
+end;
+
+end.

@@ -1,0 +1,166 @@
+object FDespesas: TFDespesas
+  Left = 164
+  Top = 159
+  BiDiMode = bdLeftToRight
+  BorderStyle = bsToolWindow
+  Caption = 'Despesas'
+  ClientHeight = 461
+  ClientWidth = 858
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  ParentBiDiMode = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 16
+    Width = 106
+    Height = 13
+    Caption = 'Pesquisar (Descri'#231#227'o):'
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 48
+    Width = 857
+    Height = 352
+    Color = clCream
+    DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+  end
+  object BtnFechaDesp: TBitBtn
+    Left = 728
+    Top = 416
+    Width = 89
+    Height = 33
+    Caption = 'Cancelar'
+    TabOrder = 2
+    OnClick = BtnFechaDespClick
+    Kind = bkClose
+  end
+  object EditPesquisa: TEdit
+    Left = 128
+    Top = 12
+    Width = 169
+    Height = 21
+    TabOrder = 0
+    OnChange = EditPesquisaChange
+  end
+  object BitBtn1: TBitBtn
+    Left = 608
+    Top = 416
+    Width = 89
+    Height = 33
+    TabOrder = 3
+    OnClick = BitBtn1Click
+    Kind = bkOK
+  end
+  object DataSource1: TDataSource
+    DataSet = Table1
+    Left = 344
+    Top = 8
+  end
+  object Table2: TTable
+    Active = True
+    DatabaseName = 'Base_Dados'
+    TableName = 'Unidades'
+    Left = 424
+    Top = 8
+  end
+  object Table3: TTable
+    Active = True
+    DatabaseName = 'Base_Dados'
+    TableName = 'CentroDeCusto'
+    Left = 464
+    Top = 8
+  end
+  object Table1: TTable
+    Active = True
+    DatabaseName = 'Base_Dados'
+    FieldDefs = <
+      item
+        Name = 'id_despesa'
+        DataType = ftAutoInc
+      end
+      item
+        Name = 'DeDescricao'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'DeDataLanc'
+        DataType = ftDateTime
+      end
+      item
+        Name = 'DeQuantidade'
+        DataType = ftFloat
+      end
+      item
+        Name = 'DeValorTotal'
+        DataType = ftFloat
+      end
+      item
+        Name = 'DeFormaPag'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'Deid_unid'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'Decodigo_criat'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'Deid_centroDeCusto'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'PrimaryKey'
+        Fields = 'id_despesa'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'CentroDeCustoDespesas'
+        Fields = 'Deid_centroDeCusto'
+      end
+      item
+        Name = 'CriatorioDespesas'
+        Fields = 'Decodigo_criat'
+      end
+      item
+        Name = 'id_despesas'
+        Fields = 'id_despesa'
+      end
+      item
+        Name = 'id_origem'
+        Fields = 'Deid_centroDeCusto'
+      end
+      item
+        Name = 'id_unid'
+        Fields = 'Deid_unid'
+      end>
+    StoreDefs = True
+    TableName = 'Despesas'
+    Left = 504
+    Top = 8
+  end
+end

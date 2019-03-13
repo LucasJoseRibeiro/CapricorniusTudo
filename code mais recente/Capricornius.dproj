@@ -1,0 +1,419 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{21F7B55A-AD0C-4763-A9DA-47BD6B126954}</ProjectGuid>
+        <MainSource>Capricornius.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Application</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <ProjectVersion>18.4</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_E>false</DCC_E>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+        <DCC_N>true</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_DebugInformation>1</DCC_DebugInformation>
+        <DCC_IOChecking>false</DCC_IOChecking>
+        <DCC_WriteableConstants>true</DCC_WriteableConstants>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_UsePackage>VCL50;VCLX50;VCLSMP50;VCLDB50;VCLADO50;ibevnt50;VCLBDE50;VCLDBX50;QRPT50;TEEUI50;TEEDB50;TEE50;DSS50;TEEQR50;VCLIB50;VCLMID50;VCLIE50;INETDB50;INET50;NMFAST50;WEBMID50;dclocx50;dclaxserver50;$(DCC_UsePackage)</DCC_UsePackage>
+        <SanitizedProjectName>Capricornius</SanitizedProjectName>
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>Capricornius_Icon.ico</Icon_MainIcon>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="UPrincipal.pas">
+            <Form>FPrincipal</Form>
+        </DCCReference>
+        <DCCReference Include="URelFichaSecagem.pas">
+            <Form>ReportFichaSecagem</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelFichaContLeit.pas">
+            <Form>ReportFichaConLeit</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelFichaContLeit2.pas">
+            <Form>ReportFichaContLeit2</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelFichaContLeitBaia.pas">
+            <Form>ReportFichaLeiteBaia</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelFichaContLeitBaia2.pas">
+            <Form>ReportFichaLeiteBaia2</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaDesmame.pas">
+            <Form>ReportFichaDesmame</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaEscore.pas">
+            <Form>ReportFichaEscore</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaNascimento.pas">
+            <Form>ReportFichaNascimento</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaOcorrencias.pas">
+            <Form>ReportFichaOcorrencias</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelFichaPesagem.pas">
+            <Form>ReportFichaPesagem</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaPrenhez.pas">
+            <Form>ReportFichaPrenhez</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Udatamodule.pas">
+            <Form>FDataModule</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaCio.pas">
+            <Form>ReportFichaCio</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelCriatorios.pas">
+            <Form>ReportCriatorios</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Uentrada.pas">
+            <Form>Fentrada</Form>
+        </DCCReference>
+        <DCCReference Include="UcriatorioAtual.pas">
+            <Form>FcriatorioAtual</Form>
+        </DCCReference>
+        <DCCReference Include="Ucriatorio.pas">
+            <Form>Fcriatorio</Form>
+        </DCCReference>
+        <DCCReference Include="Ufiltro.pas">
+            <Form>Ffiltro</Form>
+        </DCCReference>
+        <DCCReference Include="Ufichaind.pas">
+            <Form>Ffichaind</Form>
+        </DCCReference>
+        <DCCReference Include="UrelFichaInd.pas">
+            <Form>ReportFichaInd</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Uselecanimrel.pas">
+            <Form>Fselecanimaisrel</Form>
+        </DCCReference>
+        <DCCReference Include="Uselecanimaisesp.pas">
+            <Form>Fselecanimaisesp</Form>
+        </DCCReference>
+        <DCCReference Include="UrelFemeasLact.pas">
+            <Form>ReportFemLact</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Uintervaloprod.pas">
+            <Form>Fintervaloprod</Form>
+        </DCCReference>
+        <DCCReference Include="UintervaloMaiorProd.pas">
+            <Form>FintervaloMaiorProd</Form>
+        </DCCReference>
+        <DCCReference Include="UCamposRelAnimais.pas">
+            <Form>FCamposRelAnimais</Form>
+        </DCCReference>
+        <DCCReference Include="UrelAnimais.pas">
+            <Form>ReportRelGerAn</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelDadosPondOb.pas">
+            <Form>ReportDadosPondOb</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelDadosReprod.pas">
+            <Form>ReportDadReprod</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelFemeasNaoGest.pas">
+            <Form>ReportFemNGest</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelLactacoes.pas">
+            <Form>ReportLactacoes</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelMaioresProd.pas">
+            <Form>ReportMaioresProd</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelMedias.pas">
+            <Form>ReportMedias</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelMedPeso.pas">
+            <Form>ReportMedPeso</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelNascimentos.pas">
+            <Form>ReportNascimentos</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelOcorrencias.pas">
+            <Form>ReportOcorrencias</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelPrevPartos.pas">
+            <Form>ReportPrevPartos</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelPrevSecagem.pas">
+            <Form>ReportPrevSec</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelProdIntervalo.pas">
+            <Form>ReportProdIntervalo</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UOpcoesFichaLeite.pas">
+            <Form>FOpcoesFichaLeite</Form>
+        </DCCReference>
+        <DCCReference Include="UEstacoesMonta.pas">
+            <Form>FEstacoesMonta</Form>
+        </DCCReference>
+        <DCCReference Include="UCriatorioRelatorio.pas">
+            <Form>FCriatorioRelatorio</Form>
+        </DCCReference>
+        <DCCReference Include="URelAgenda.pas">
+            <Form>RAgenda</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Uerroimport.pas">
+            <Form>QRerroimport</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UErroImportProd.pas">
+            <Form>QErroImportProd</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URacaComposta.pas">
+            <Form>FRacaComposta</Form>
+        </DCCReference>
+        <DCCReference Include="UPesagens.pas">
+            <Form>FPesagens</Form>
+        </DCCReference>
+        <DCCReference Include="UPesoAcasalamento.pas">
+            <Form>FPesoAcasalamento</Form>
+        </DCCReference>
+        <DCCReference Include="UErroImportPeso.pas">
+            <Form>QErroImportPeso</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaSaida.pas">
+            <Form>ReportFichaSaida</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Usituacao.pas">
+            <Form>ReportSituacao</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UImportExport.pas">
+            <Form>FImportExport</Form>
+        </DCCReference>
+        <DCCReference Include="UVisualizarFoto.pas">
+            <Form>FVisualizarFoto</Form>
+        </DCCReference>
+        <DCCReference Include="UInserirExcluirFoto.pas">
+            <Form>FInserirExcluirFoto</Form>
+        </DCCReference>
+        <DCCReference Include="URelVacinacoes.pas">
+            <Form>ReportVacinacoes</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFichaDoenca.pas">
+            <Form>ReportFichaDoenca</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelDiagDoencas.pas">
+            <Form>ReportDiagnosticoDoencas</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Ufertilidade.pas">
+            <Form>ReportFertilidade</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UrelFertInd.pas">
+            <Form>ReportFertInd</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UintervaloAnos.pas">
+            <Form>FintervaloAnos</Form>
+        </DCCReference>
+        <DCCReference Include="UOpcoesFichaGest.pas">
+            <Form>FOpcoesFichaGest</Form>
+        </DCCReference>
+        <DCCReference Include="UselecDep.pas">
+            <Form>FselecDep</Form>
+        </DCCReference>
+        <DCCReference Include="URelDep.pas">
+            <Form>ReportDep</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UDespesas.pas">
+            <Form>FDespesas</Form>
+        </DCCReference>
+        <DCCReference Include="UReceitas.pas">
+            <Form>FReceitas</Form>
+        </DCCReference>
+        <DCCReference Include="UselecAtiv.pas">
+            <Form>FselecAtiv</Form>
+        </DCCReference>
+        <DCCReference Include="UCustoAtiv.pas">
+            <Form>ReportCustoAtiv</Form>
+        </DCCReference>
+        <DCCReference Include="UValidar.pas">
+            <Form>FValidar</Form>
+        </DCCReference>
+        <DCCReference Include="UTerras.pas">
+            <Form>FTerras</Form>
+        </DCCReference>
+        <DCCReference Include="UBenfeitorias.pas">
+            <Form>FBenfeitorias</Form>
+        </DCCReference>
+        <DCCReference Include="UMaquinas.pas">
+            <Form>FMaquinas</Form>
+        </DCCReference>
+        <DCCReference Include="UOutros.pas">
+            <Form>FRecursosHumanos</Form>
+        </DCCReference>
+        <DCCReference Include="UInsumos.pas">
+            <Form>FInsumos</Form>
+        </DCCReference>
+        <DCCReference Include="UCompRacial.pas">
+            <Form>FCompRacial</Form>
+        </DCCReference>
+        <DCCReference Include="URelListaPesa.pas">
+            <Form>ReportListaPesagens</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelCustoProdLeite.pas">
+            <Form>ReportCustoProdLeite</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelCustoProdCarne.pas">
+            <Form>ReportCustoProdCarne</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelCustoReprodutores.pas">
+            <Form>ReportCustoVendaDeAnimais</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelRegAssociacao.pas">
+            <Form>ReportRegistroAssociacao</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="URelFinanGeral.pas">
+            <Form>ReportFinanGeral</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UComparativo.pas">
+            <Form>ReportComparativo</Form>
+            <DesignClass>TQuickRep</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UIntervaloComp.pas">
+            <Form>FIntervaloComparativo</Form>
+        </DCCReference>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">Capricornius.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
